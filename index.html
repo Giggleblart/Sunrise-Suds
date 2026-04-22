@@ -662,7 +662,7 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#status">System Status</a></li>
   </ul>
-  <button class="btn btn-gold" onclick="openModal()" style="padding:0.6rem 1.4rem;font-size:0.85rem;">Employee Login →</button>
+  <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/login/login-homepage" target="_blank" class="btn btn-gold" style="padding:0.6rem 1.4rem;font-size:0.85rem;">Employee Login →</a>
 </nav>
 
 <!-- HERO -->
@@ -682,7 +682,7 @@
     <div class="hero-stat"><div class="num">4</div><div class="label">Alerts Active</div></div>
   </div>
   <div class="hero-cta">
-    <button class="btn btn-gold" onclick="openModal()">Employee Login →</button>
+    <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/login/login-homepage" target="_blank" class="btn btn-gold">Employee Login →</a>
     <a href="#features" class="btn btn-outline">Learn More</a>
   </div>
 </section>
@@ -747,7 +747,7 @@
         <div class="access-item"><span class="dot dot-inv"></span>Product Management — add &amp; edit products</div>
         <div class="access-item"><span class="dot dot-inv"></span>Shipment History — full audit trail</div>
       </div>
-      <button class="portal-login-btn inv" onclick="openModal()">Sign In as Inventory Manager</button>
+      <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/login/login-homepage" target="_blank" class="portal-login-btn inv" style="display:block;text-align:center;text-decoration:none;">Sign In as Inventory Manager</a>
     </div>
 
     <!-- WAREHOUSE MANAGER -->
@@ -766,7 +766,7 @@
         <div class="access-item"><span class="dot dot-wh"></span>Shipment History — review past deliveries</div>
         <div class="access-item"><span class="dot dot-wh"></span>Inventory Dashboard — read-only stock view</div>
       </div>
-      <button class="portal-login-btn wh" onclick="openModal()">Sign In as Warehouse Manager</button>
+      <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/login/login-homepage" target="_blank" class="portal-login-btn wh" style="display:block;text-align:center;text-decoration:none;">Sign In as Warehouse Manager</a>
     </div>
 
   </div>
@@ -780,7 +780,7 @@
       <h2 class="section-title">Everything a brewing operation needs</h2>
       <p class="section-desc">Sunrise Suds IMS was built ground-up for craft beverage operations — combining real-time data, role-based access, and freshness tracking in one unified platform.</p>
       <div style="margin-top:2rem;">
-        <button class="btn btn-gold" onclick="openModal()">Access the System →</button>
+        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/login/login-homepage" target="_blank" class="btn btn-gold">Access the System →</a>
       </div>
     </div>
     <div class="features-grid">
@@ -805,100 +805,6 @@
   </ul>
 </footer>
 
-<!-- SINGLE LOGIN MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
-  <div class="modal" id="modalBox">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-logo">🍺 Sunrise Suds</div>
-    <h3>Employee Login</h3>
-    <p class="modal-desc">Enter your credentials to access your role-based portal.</p>
 
-    <div class="login-field">
-      <label>Email Address</label>
-      <input type="text" id="modalUser" placeholder="Enter your email address" autocomplete="off"/>
-    </div>
-    <div class="login-field">
-      <label>Password</label>
-      <input type="password" id="modalPass" placeholder="Enter your password"/>
-    </div>
-
-    <button class="login-submit" onclick="handleLogin()">Sign In →</button>
-
-    <div class="login-error" id="loginError">Incorrect username or password. Please try again.</div>
-
-    <hr class="login-divider"/>
-
-    <div class="login-hint">
-      <div style="margin-bottom:0.6rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;">Demo Credentials</div>
-      <div class="hint-row">
-        <div class="hint-block inv">
-          <div class="role-name">Inventory Manager</div>
-          <div style="word-break:break-all;">Email: <strong>wrenchhypo@gmail.com</strong></div>
-          <div>Pass: <strong>Sunrise1!</strong></div>
-        </div>
-        <div class="hint-block wh">
-          <div class="role-name">Warehouse Manager</div>
-          <div style="word-break:break-all;">Email: <strong>ktcottrell5811@eagle.fgcu.edu</strong></div>
-          <div>Pass: <strong>Sunrise2!</strong></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  const USERS = {
-    'wrenchhypo@gmail.com': {
-      password: 'Sunrise1!',
-      redirect: 'https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/inventory-dashboard?sid=8511e2bc76f144cd8508a8c849edddc1'
-    },
-    'ktcottrell5811@eagle.fgcu.edu': {
-      password: 'Sunrise2!',
-      redirect: 'https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/shipment-logging?sid=75058abb1dd449399a621a46b22084c9'
-    }
-  };
-
-  function openModal() {
-    document.getElementById('modalUser').value = '';
-    document.getElementById('modalPass').value = '';
-    document.getElementById('loginError').classList.remove('show');
-    document.getElementById('modalUser').classList.remove('error');
-    document.getElementById('modalPass').classList.remove('error');
-    document.getElementById('modalOverlay').classList.add('open');
-    setTimeout(() => document.getElementById('modalUser').focus(), 100);
-  }
-
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-  }
-
-  function handleOverlayClick(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  }
-
-  function handleLogin() {
-    const user = document.getElementById('modalUser').value.trim();
-    const pass = document.getElementById('modalPass').value.trim();
-    const match = USERS[user];
-
-    if (match && match.password === pass) {
-      window.open(match.redirect, '_blank');
-      closeModal();
-    } else {
-      document.getElementById('modalUser').classList.add('error');
-      document.getElementById('modalPass').classList.add('error');
-      document.getElementById('loginError').classList.add('show');
-      setTimeout(() => {
-        document.getElementById('modalUser').classList.remove('error');
-        document.getElementById('modalPass').classList.remove('error');
-      }, 2000);
-    }
-  }
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'Enter' && document.getElementById('modalOverlay').classList.contains('open')) handleLogin();
-  });
-</script>
 </body>
 </html>
