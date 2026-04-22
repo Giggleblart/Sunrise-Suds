@@ -24,7 +24,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -34,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -54,9 +52,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.2rem 3rem;
-      background: rgba(15, 10, 4, 0.85);
+      background: rgba(15,10,4,0.88);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(201, 146, 42, 0.15);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
     }
 
     .nav-logo {
@@ -67,7 +65,6 @@
       letter-spacing: 0.04em;
       text-decoration: none;
     }
-
     .nav-logo span { color: var(--cream); }
 
     .nav-links {
@@ -75,7 +72,6 @@
       gap: 2rem;
       list-style: none;
     }
-
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
@@ -85,125 +81,7 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-
     .nav-links a:hover { color: var(--gold); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(201,146,42,0.1);
-      border: 1px solid rgba(201,146,42,0.3);
-      border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2rem;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-
-    .hero h1 .gold { color: var(--gold); }
-    .hero h1 .block { display: block; }
-
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      max-width: 500px;
-      line-height: 1.7;
-      font-weight: 300;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-
-    .hero-divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      margin: 2rem auto;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin-top: 0.5rem;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
-
-    .hero-stat {
-      text-align: center;
-    }
-
-    .hero-stat .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .hero-stat .label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 3rem;
-      animation: fadeUp 0.6s 0.5s ease both;
-    }
 
     .btn {
       display: inline-flex;
@@ -220,24 +98,20 @@
       cursor: pointer;
       border: none;
     }
-
     .btn-gold {
       background: var(--gold);
       color: var(--dark);
     }
-
     .btn-gold:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(201,146,42,0.3);
     }
-
     .btn-outline {
       background: transparent;
       color: var(--cream);
       border: 1px solid rgba(250,244,232,0.2);
     }
-
     .btn-outline:hover {
       border-color: var(--gold);
       color: var(--gold);
@@ -246,241 +120,123 @@
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(0.8); }
     }
 
-    /* ── SECTION BASE ── */
-    section {
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      max-width: 480px;
-      font-weight: 300;
-    }
-
-    /* ── PORTAL ── */
-    #portal {
-      padding: 6rem 3rem;
-      background: var(--dark-2);
-      border-top: 1px solid rgba(201,146,42,0.1);
-      border-bottom: 1px solid rgba(201,146,42,0.1);
-    }
-
-    .portal-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .portal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      max-width: 1100px;
-      margin: 0 auto;
-      background: rgba(201,146,42,0.1);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .portal-card {
-      background: var(--dark-3);
-      padding: 3rem;
-      transition: background 0.3s;
-    }
-
-    .portal-card:hover { background: #2A1E0E; }
-
-    .portal-card-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .portal-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-
-    .portal-icon.inv { background: rgba(201,146,42,0.15); }
-    .portal-icon.wh { background: rgba(74,143,168,0.15); }
-
-    .portal-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .portal-card h3.inv { color: var(--gold); }
-    .portal-card h3.wh { color: var(--wh-light); }
-
-    .portal-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    .portal-links {
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .portal-link {
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: all 0.2s;
-      border: 1px solid transparent;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
     }
-
-    .portal-link.inv {
-      background: rgba(201,146,42,0.08);
-      color: var(--cream);
-      border-color: rgba(201,146,42,0.15);
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
     }
-
-    .portal-link.inv:hover {
-      background: rgba(201,146,42,0.18);
-      border-color: rgba(201,146,42,0.4);
-      transform: translateX(4px);
-    }
-
-    .portal-link.wh {
-      background: rgba(74,143,168,0.08);
-      color: var(--cream);
-      border-color: rgba(74,143,168,0.15);
-    }
-
-    .portal-link.wh:hover {
-      background: rgba(74,143,168,0.18);
-      border-color: rgba(74,143,168,0.4);
-      transform: translateX(4px);
-    }
-
-    .portal-link-badge {
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.6rem;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,146,42,0.1);
+      border: 1px solid rgba(201,146,42,0.3);
       border-radius: 100px;
-      font-weight: 600;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
     }
-
-    .badge-inv { background: rgba(201,146,42,0.2); color: var(--gold); }
-    .badge-wh { background: rgba(74,143,168,0.2); color: var(--wh-light); }
-    .badge-alert { background: rgba(192,57,43,0.2); color: #E74C3C; }
-    .badge-new { background: rgba(39,174,96,0.2); color: #2ECC71; }
-
-    .arrow { opacity: 0.5; font-size: 0.8rem; }
-
-    /* ── FEATURES ── */
-    #features {
-      padding: 6rem 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s infinite;
     }
-
-    .features-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.6s 0.1s ease both;
     }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .feature-card {
-      background: var(--dark-2);
-      border: 1px solid rgba(201,146,42,0.1);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .feature-card:hover {
-      border-color: rgba(201,146,42,0.3);
-      transform: translateY(-3px);
-    }
-
-    .feature-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-card h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--cream);
-    }
-
-    .feature-card p {
-      font-size: 0.8rem;
+    .hero h1 .gold { color: var(--gold); }
+    .hero h1 .block { display: block; }
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      max-width: 500px;
+      line-height: 1.7;
       font-weight: 300;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2rem auto;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 0.5rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .hero-stat .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      animation: fadeUp 0.6s 0.5s ease both;
     }
 
-    /* ── STATUS BAR ── */
+    /* ── STATUS ── */
     #status {
       padding: 4rem 3rem;
       background: var(--dark-2);
       border-top: 1px solid rgba(201,146,42,0.1);
       border-bottom: 1px solid rgba(201,146,42,0.1);
+      position: relative; z-index: 1;
     }
-
-    .status-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    .status-inner { max-width: 1100px; margin: 0 auto; }
     .status-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 2rem;
     }
-
     .live-badge {
       display: flex;
       align-items: center;
@@ -491,27 +247,23 @@
       text-transform: uppercase;
       font-weight: 600;
     }
-
     .live-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
       background: var(--success);
       animation: pulse 2s infinite;
     }
-
     .status-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4,1fr);
       gap: 1.5rem;
     }
-
     .status-card {
       background: var(--dark-3);
       border: 1px solid rgba(201,146,42,0.1);
       border-radius: 12px;
       padding: 1.5rem;
     }
-
     .status-card .s-label {
       font-size: 0.72rem;
       text-transform: uppercase;
@@ -520,7 +272,6 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
-
     .status-card .s-value {
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
@@ -528,14 +279,186 @@
       color: var(--cream);
       line-height: 1;
     }
-
     .status-card .s-value.alert { color: var(--danger); }
-    .status-card .s-value.warn { color: var(--gold); }
-
+    .status-card .s-value.warn  { color: var(--gold); }
     .status-card .s-sub {
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-top: 0.4rem;
+    }
+
+    /* ── PORTAL ── */
+    #portal {
+      padding: 6rem 3rem;
+      background: var(--dark-2);
+      border-bottom: 1px solid rgba(201,146,42,0.1);
+      position: relative; z-index: 1;
+    }
+    .portal-header { text-align: center; margin-bottom: 4rem; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem,4vw,3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    /* role cards (read-only, no links — login required) */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(201,146,42,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .portal-card {
+      background: var(--dark-3);
+      padding: 3rem;
+      transition: background 0.3s;
+    }
+    .portal-card:hover { background: #2A1E0E; }
+    .portal-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .portal-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .portal-icon.inv { background: rgba(201,146,42,0.15); }
+    .portal-icon.wh  { background: rgba(74,143,168,0.15); }
+    .portal-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .portal-card h3.inv { color: var(--gold); }
+    .portal-card h3.wh  { color: var(--wh-light); }
+    .portal-card > p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .access-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .access-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .access-item span.dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-inv { background: var(--gold); }
+    .dot-wh  { background: var(--wh-light); }
+
+    .portal-login-btn {
+      width: 100%;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .portal-login-btn.inv {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .portal-login-btn.inv:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,146,42,0.25);
+    }
+    .portal-login-btn.wh {
+      background: var(--wh-color);
+      color: white;
+    }
+    .portal-login-btn.wh:hover {
+      background: var(--wh-light);
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── FEATURES ── */
+    #features {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .features-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 480px;
+      font-weight: 300;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,146,42,0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      border-color: rgba(201,146,42,0.3);
+      transform: translateY(-3px);
+    }
+    .feature-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .feature-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--cream);
+    }
+    .feature-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-weight: 300;
     }
 
     /* ── FOOTER ── */
@@ -543,8 +466,8 @@
       padding: 3rem;
       text-align: center;
       border-top: 1px solid rgba(201,146,42,0.1);
+      position: relative; z-index: 1;
     }
-
     .footer-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
@@ -552,13 +475,7 @@
       color: var(--gold);
       margin-bottom: 0.5rem;
     }
-
-    footer p {
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      font-weight: 300;
-    }
-
+    footer p { color: var(--text-muted); font-size: 0.8rem; font-weight: 300; }
     .footer-links {
       display: flex;
       justify-content: center;
@@ -566,14 +483,12 @@
       margin-top: 1.5rem;
       list-style: none;
     }
-
     .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.8rem;
       transition: color 0.2s;
     }
-
     .footer-links a:hover { color: var(--gold); }
 
     /* ── MODAL ── */
@@ -587,20 +502,17 @@
       justify-content: center;
       backdrop-filter: blur(8px);
     }
-
     .modal-overlay.open { display: flex; }
-
     .modal {
       background: var(--dark-2);
       border: 1px solid rgba(201,146,42,0.2);
       border-radius: 16px;
       padding: 2.5rem;
       width: 100%;
-      max-width: 460px;
+      max-width: 440px;
       position: relative;
       animation: fadeUp 0.3s ease both;
     }
-
     .modal-close {
       position: absolute;
       top: 1rem; right: 1rem;
@@ -610,40 +522,43 @@
       font-size: 1.2rem;
       cursor: pointer;
       transition: color 0.2s;
+      line-height: 1;
     }
-
     .modal-close:hover { color: var(--cream); }
 
+    .modal-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
     .modal h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
     }
-
-    .modal p {
+    .modal-desc {
       color: var(--text-muted);
       font-size: 0.875rem;
       margin-bottom: 2rem;
       line-height: 1.6;
+      font-weight: 300;
     }
-
-    .login-field {
-      margin-bottom: 1rem;
-    }
-
+    .login-field { margin-bottom: 1rem; }
     .login-field label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--text-muted);
       margin-bottom: 0.4rem;
       font-weight: 600;
     }
-
     .login-field input {
       width: 100%;
-      padding: 0.75rem 1rem;
+      padding: 0.8rem 1rem;
       background: var(--dark-3);
       border: 1px solid rgba(201,146,42,0.15);
       border-radius: 6px;
@@ -653,10 +568,10 @@
       outline: none;
       transition: border-color 0.2s;
     }
-
     .login-field input:focus { border-color: var(--gold); }
+    .login-field input.error { border-color: var(--danger) !important; }
 
-    .login-btn {
+    .login-submit {
       width: 100%;
       margin-top: 0.5rem;
       padding: 0.9rem;
@@ -666,26 +581,62 @@
       font-weight: 600;
       cursor: pointer;
       border: none;
+      background: var(--gold);
+      color: var(--dark);
       transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .login-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
     }
 
-    .login-btn.inv { background: var(--gold); color: var(--dark); }
-    .login-btn.inv:hover { background: var(--gold-light); }
-    .login-btn.wh { background: var(--wh-color); color: white; }
-    .login-btn.wh:hover { background: var(--wh-light); color: var(--dark); }
+    .login-error {
+      margin-top: 0.75rem;
+      padding: 0.7rem 1rem;
+      background: rgba(192,57,43,0.1);
+      border: 1px solid rgba(192,57,43,0.25);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #E74C3C;
+      display: none;
+    }
+    .login-error.show { display: block; }
+
+    .login-divider {
+      margin: 1.5rem 0;
+      border: none;
+      border-top: 1px solid rgba(201,146,42,0.1);
+    }
 
     .login-hint {
-      margin-top: 1rem;
-      padding: 0.75rem 1rem;
-      background: rgba(201,146,42,0.06);
-      border: 1px solid rgba(201,146,42,0.12);
-      border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.7;
+      font-weight: 300;
     }
-
-    .login-hint strong { color: var(--gold); }
+    .login-hint strong { color: var(--gold); font-weight: 600; }
+    .hint-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .hint-block {
+      flex: 1;
+      padding: 0.75rem;
+      background: rgba(201,146,42,0.05);
+      border: 1px solid rgba(201,146,42,0.1);
+      border-radius: 6px;
+    }
+    .hint-block .role-name {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+    .hint-block.inv .role-name { color: var(--gold); }
+    .hint-block.wh  .role-name { color: var(--wh-light); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -697,6 +648,7 @@
       .status-grid { grid-template-columns: 1fr 1fr; }
       .hero-stats { gap: 1.5rem; }
       #features, #portal, #status { padding: 4rem 1.5rem; }
+      .hint-row { flex-direction: column; }
     }
   </style>
 </head>
@@ -710,10 +662,7 @@
     <li><a href="#features">Features</a></li>
     <li><a href="#status">System Status</a></li>
   </ul>
-  <div style="display:flex;gap:0.75rem;">
-    <button class="btn btn-outline" onclick="openModal('inv')" style="padding:0.6rem 1.2rem;font-size:0.8rem;">Inventory Manager</button>
-    <button class="btn btn-gold" onclick="openModal('wh')" style="padding:0.6rem 1.2rem;font-size:0.8rem;">Warehouse Manager</button>
-  </div>
+  <button class="btn btn-gold" onclick="openModal()" style="padding:0.6rem 1.4rem;font-size:0.85rem;">Employee Login →</button>
 </nav>
 
 <!-- HERO -->
@@ -727,30 +676,18 @@
   <div class="hero-divider"></div>
   <p class="hero-sub">A complete inventory management platform built for craft brewing operations — track stock, monitor freshness, and eliminate stockouts in real time.</p>
   <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num">10</div>
-      <div class="label">Products</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">20+</div>
-      <div class="label">Shipments</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">2</div>
-      <div class="label">Departments</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">4</div>
-      <div class="label">Alerts Active</div>
-    </div>
+    <div class="hero-stat"><div class="num">10</div><div class="label">Products</div></div>
+    <div class="hero-stat"><div class="num">20+</div><div class="label">Shipments</div></div>
+    <div class="hero-stat"><div class="num">2</div><div class="label">Departments</div></div>
+    <div class="hero-stat"><div class="num">4</div><div class="label">Alerts Active</div></div>
   </div>
   <div class="hero-cta">
-    <button class="btn btn-gold" onclick="openModal('inv')">Inventory Manager →</button>
-    <button class="btn btn-outline" onclick="openModal('wh')">Warehouse Manager</button>
+    <button class="btn btn-gold" onclick="openModal()">Employee Login →</button>
+    <a href="#features" class="btn btn-outline">Learn More</a>
   </div>
 </section>
 
-<!-- STATUS BAR -->
+<!-- STATUS -->
 <section id="status">
   <div class="status-inner">
     <div class="status-header">
@@ -789,8 +726,8 @@
 <section id="portal">
   <div class="portal-header">
     <div class="section-label">Access Portal</div>
-    <h2 class="section-title">Choose Your Role</h2>
-    <p style="color:var(--text-muted);font-size:0.95rem;font-weight:300;margin-top:0.5rem;">Each role has tailored access to the tools they need most.</p>
+    <h2 class="section-title">Role-Based Access</h2>
+    <p style="color:var(--text-muted);font-size:0.95rem;font-weight:300;margin-top:0.5rem;">Each role provides tailored tools for your responsibilities.</p>
   </div>
   <div class="portal-grid">
 
@@ -800,28 +737,17 @@
         <div class="portal-icon inv">📊</div>
         <div>
           <h3 class="inv">Inventory Manager</h3>
-          <p style="font-size:0.78rem;color:var(--text-muted);margin:0;font-weight:400;">Strategic oversight & alerts</p>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin:0;font-weight:400;">Strategic oversight &amp; alerts</p>
         </div>
       </div>
       <p>Monitor overall stock health, respond to low inventory alerts, manage the product catalog, and track freshness across all brewing departments.</p>
-      <div class="portal-links">
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/inventory-dashboard?sid=8511e2bc76f144cd8508a8c849edddc1" target="_blank" class="portal-link inv">
-          <span>📋 Inventory Dashboard</span>
-          <span class="portal-link-badge badge-inv">Main View</span>
-        </a>
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/low-stock-alerts?sid=6ddc1b118650414eb6fa800c3b78fe8c" target="_blank" class="portal-link inv">
-          <span>🚨 Low Stock Alerts</span>
-          <span class="portal-link-badge badge-alert">4 Active</span>
-        </a>
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/product-management?sid=26bda5a2501746cc890dc931768fa2e2" target="_blank" class="portal-link inv">
-          <span>⚙️ Product Management</span>
-          <span class="portal-link-badge badge-new">Add Products</span>
-        </a>
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/shipment-history?sid=fd62e6fbbef14c5ea1d6c7e467373bdd" target="_blank" class="portal-link inv">
-          <span>📦 Shipment History</span>
-          <span class="portal-link-badge badge-inv">Full Log</span>
-        </a>
+      <div class="access-list">
+        <div class="access-item"><span class="dot dot-inv"></span>Inventory Dashboard — full stock overview</div>
+        <div class="access-item"><span class="dot dot-inv"></span>Low Stock Alerts — automatic stockout flags</div>
+        <div class="access-item"><span class="dot dot-inv"></span>Product Management — add &amp; edit products</div>
+        <div class="access-item"><span class="dot dot-inv"></span>Shipment History — full audit trail</div>
       </div>
+      <button class="portal-login-btn inv" onclick="openModal()">Sign In as Inventory Manager</button>
     </div>
 
     <!-- WAREHOUSE MANAGER -->
@@ -830,28 +756,17 @@
         <div class="portal-icon wh">🏭</div>
         <div>
           <h3 class="wh">Warehouse Manager</h3>
-          <p style="font-size:0.78rem;color:var(--text-muted);margin:0;font-weight:400;">Operations & receiving</p>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin:0;font-weight:400;">Operations &amp; receiving</p>
         </div>
       </div>
       <p>Log incoming shipments, update stock levels in real time, track product freshness and expiration dates, and manage day-to-day warehouse operations.</p>
-      <div class="portal-links">
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/shipment-logging?sid=75058abb1dd449399a621a46b22084c9" target="_blank" class="portal-link wh">
-          <span>📥 Log a Shipment</span>
-          <span class="portal-link-badge badge-new">Submit</span>
-        </a>
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/freshness-tracker?sid=776943b69b1f4365b4029b20314c4386" target="_blank" class="portal-link wh">
-          <span>🌿 Freshness Tracker</span>
-          <span class="portal-link-badge badge-alert">3 Expiring</span>
-        </a>
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/shipment-history?sid=fd62e6fbbef14c5ea1d6c7e467373bdd" target="_blank" class="portal-link wh">
-          <span>📦 Shipment History</span>
-          <span class="portal-link-badge badge-wh">View All</span>
-        </a>
-        <a href="https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/inventory-dashboard?sid=8511e2bc76f144cd8508a8c849edddc1" target="_blank" class="portal-link wh">
-          <span>📋 Inventory Dashboard</span>
-          <span class="portal-link-badge badge-wh">Read Only</span>
-        </a>
+      <div class="access-list">
+        <div class="access-item"><span class="dot dot-wh"></span>Log a Shipment — receive new stock instantly</div>
+        <div class="access-item"><span class="dot dot-wh"></span>Freshness Tracker — monitor expiration dates</div>
+        <div class="access-item"><span class="dot dot-wh"></span>Shipment History — review past deliveries</div>
+        <div class="access-item"><span class="dot dot-wh"></span>Inventory Dashboard — read-only stock view</div>
       </div>
+      <button class="portal-login-btn wh" onclick="openModal()">Sign In as Warehouse Manager</button>
     </div>
 
   </div>
@@ -865,40 +780,16 @@
       <h2 class="section-title">Everything a brewing operation needs</h2>
       <p class="section-desc">Sunrise Suds IMS was built ground-up for craft beverage operations — combining real-time data, role-based access, and freshness tracking in one unified platform.</p>
       <div style="margin-top:2rem;">
-        <button class="btn btn-gold" onclick="openModal('inv')">Explore the System →</button>
+        <button class="btn btn-gold" onclick="openModal()">Access the System →</button>
       </div>
     </div>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h4>Live Dashboard</h4>
-        <p>Real-time view of all inventory levels across every product and department.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🚨</div>
-        <h4>Stockout Alerts</h4>
-        <p>Automatic flags when any product drops below its minimum stock threshold.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🌿</div>
-        <h4>Freshness Tracking</h4>
-        <p>Monitor expiration dates on every shipment so nothing goes stale unnoticed.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📥</div>
-        <h4>Shipment Logging</h4>
-        <p>Log incoming stock in seconds with department routing and manager attribution.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">👥</div>
-        <h4>Role-Based Access</h4>
-        <p>Separate portals for Inventory and Warehouse managers with tailored tools.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📦</div>
-        <h4>Audit Trail</h4>
-        <p>Full history of every shipment received, who logged it, and when it arrived.</p>
-      </div>
+      <div class="feature-card"><div class="feature-icon">📊</div><h4>Live Dashboard</h4><p>Real-time view of all inventory levels across every product and department.</p></div>
+      <div class="feature-card"><div class="feature-icon">🚨</div><h4>Stockout Alerts</h4><p>Automatic flags when any product drops below its minimum stock threshold.</p></div>
+      <div class="feature-card"><div class="feature-icon">🌿</div><h4>Freshness Tracking</h4><p>Monitor expiration dates on every shipment so nothing goes stale unnoticed.</p></div>
+      <div class="feature-card"><div class="feature-icon">📥</div><h4>Shipment Logging</h4><p>Log incoming stock in seconds with department routing and manager attribution.</p></div>
+      <div class="feature-card"><div class="feature-icon">👥</div><h4>Role-Based Access</h4><p>Separate portals for Inventory and Warehouse managers with tailored tools.</p></div>
+      <div class="feature-card"><div class="feature-icon">📦</div><h4>Audit Trail</h4><p>Full history of every shipment received, who logged it, and when it arrived.</p></div>
     </div>
   </div>
 </section>
@@ -914,64 +805,71 @@
   </ul>
 </footer>
 
-<!-- LOGIN MODAL -->
+<!-- SINGLE LOGIN MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
   <div class="modal" id="modalBox">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <h3 id="modalTitle">Sign In</h3>
-    <p id="modalDesc">Enter your credentials to access your portal.</p>
+    <div class="modal-logo">🍺 Sunrise Suds</div>
+    <h3>Employee Login</h3>
+    <p class="modal-desc">Enter your credentials to access your role-based portal.</p>
+
     <div class="login-field">
       <label>Username</label>
-      <input type="text" id="modalUser" placeholder="Enter username"/>
+      <input type="text" id="modalUser" placeholder="Enter your username" autocomplete="off"/>
     </div>
     <div class="login-field">
       <label>Password</label>
-      <input type="password" id="modalPass" placeholder="Enter password"/>
+      <input type="password" id="modalPass" placeholder="Enter your password"/>
     </div>
-    <button class="login-btn" id="loginBtn" onclick="handleLogin()">Sign In</button>
-    <div class="login-hint" id="loginHint"></div>
+
+    <button class="login-submit" onclick="handleLogin()">Sign In →</button>
+
+    <div class="login-error" id="loginError">Incorrect username or password. Please try again.</div>
+
+    <hr class="login-divider"/>
+
+    <div class="login-hint">
+      <div style="margin-bottom:0.6rem;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600;">Demo Credentials</div>
+      <div class="hint-row">
+        <div class="hint-block inv">
+          <div class="role-name">Inventory Manager</div>
+          <div>User: <strong>inv_manager</strong></div>
+          <div>Pass: <strong>sunrise1</strong></div>
+        </div>
+        <div class="hint-block wh">
+          <div class="role-name">Warehouse Manager</div>
+          <div>User: <strong>warehouse_mgr</strong></div>
+          <div>Pass: <strong>sunrise2</strong></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-  const ROLES = {
-    inv: {
-      username: 'inv_manager',
+  const USERS = {
+    inv_manager: {
       password: 'sunrise1',
-      title: '📊 Inventory Manager Login',
-      desc: 'Access your inventory dashboard, alerts, and product management tools.',
-      btnClass: 'inv',
-      hint: '<strong>Demo credentials:</strong><br>Username: inv_manager<br>Password: sunrise1',
       redirect: 'https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/inventory-dashboard?sid=8511e2bc76f144cd8508a8c849edddc1'
     },
-    wh: {
-      username: 'warehouse_mgr',
+    warehouse_mgr: {
       password: 'sunrise2',
-      title: '🏭 Warehouse Manager Login',
-      desc: 'Access shipment logging, freshness tracking, and warehouse operations.',
-      btnClass: 'wh',
-      hint: '<strong>Demo credentials:</strong><br>Username: warehouse_mgr<br>Password: sunrise2',
       redirect: 'https://d5abg209.caspio.app/sunrise-suds-inventory-system/public/shipment-logging?sid=75058abb1dd449399a621a46b22084c9'
     }
   };
 
-  let currentRole = null;
-
-  function openModal(role) {
-    currentRole = role;
-    const r = ROLES[role];
-    document.getElementById('modalTitle').textContent = r.title;
-    document.getElementById('modalDesc').textContent = r.desc;
-    document.getElementById('loginHint').innerHTML = r.hint;
-    document.getElementById('loginBtn').className = 'login-btn ' + r.btnClass;
+  function openModal() {
     document.getElementById('modalUser').value = '';
     document.getElementById('modalPass').value = '';
+    document.getElementById('loginError').classList.remove('show');
+    document.getElementById('modalUser').classList.remove('error');
+    document.getElementById('modalPass').classList.remove('error');
     document.getElementById('modalOverlay').classList.add('open');
+    setTimeout(() => document.getElementById('modalUser').focus(), 100);
   }
 
   function closeModal() {
     document.getElementById('modalOverlay').classList.remove('open');
-    currentRole = null;
   }
 
   function handleOverlayClick(e) {
@@ -981,23 +879,25 @@
   function handleLogin() {
     const user = document.getElementById('modalUser').value.trim();
     const pass = document.getElementById('modalPass').value.trim();
-    const r = ROLES[currentRole];
-    if (user === r.username && pass === r.password) {
-      window.open(r.redirect, '_blank');
+    const match = USERS[user];
+
+    if (match && match.password === pass) {
+      window.open(match.redirect, '_blank');
       closeModal();
     } else {
-      document.getElementById('modalUser').style.borderColor = '#C0392B';
-      document.getElementById('modalPass').style.borderColor = '#C0392B';
+      document.getElementById('modalUser').classList.add('error');
+      document.getElementById('modalPass').classList.add('error');
+      document.getElementById('loginError').classList.add('show');
       setTimeout(() => {
-        document.getElementById('modalUser').style.borderColor = '';
-        document.getElementById('modalPass').style.borderColor = '';
-      }, 1500);
+        document.getElementById('modalUser').classList.remove('error');
+        document.getElementById('modalPass').classList.remove('error');
+      }, 2000);
     }
   }
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
-    if (e.key === 'Enter' && currentRole) handleLogin();
+    if (e.key === 'Enter' && document.getElementById('modalOverlay').classList.contains('open')) handleLogin();
   });
 </script>
 </body>
